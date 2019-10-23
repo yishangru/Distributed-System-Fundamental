@@ -1,6 +1,7 @@
 Scala Tutorial (Spark)
 
 **Ref: https://www.analyticsvidhya.com/blog/2017/01/scala/**
+
 Scala is an object-oriented programming language. It gets source code and generates Java bytecode that can be executed independently on any standard JVM.
 
 - Installing Scala
