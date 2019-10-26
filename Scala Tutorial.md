@@ -138,14 +138,15 @@ x.reduce(_ + _)  # variable is generated and calculated
 ```
 
 - Collections in Scala
-	1. Array (fix size)
+
+*Array (fix size)*
 ```
 val arr = new Array[Int](10)  # 0 as initialization
 arr(1) = 100
 arr.foreach(println)
 ```
 
-	2. ArrayBuffer (variable length)
+*ArrayBuffer (variable length)*
 ```
 import scala.collection.mutable.ArrayBuffer 
 var arr = new ArrayBuffer[Int]()
@@ -154,7 +155,7 @@ arr += (300, 400, 500)  # add elements
 arr ++= Array(600, 700, 800)  # append collection
 ```
 
-	3. Map
+*Map*
 ```
 import scala.collection.mutable.Map
 import scala.collection.immutable.Map
@@ -163,7 +164,7 @@ map.getOrElse(1, "Key Missing")
 map += (1 -> "Jenny")
 ```
 
-	4. Tuple
+*Tuple*
 ```
 val t = (100, "John")
 t._1  # tuple index start from 1
