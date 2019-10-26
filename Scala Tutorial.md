@@ -144,6 +144,7 @@ val arr = new Array[Int](10)  # 0 as initialization
 arr(1) = 100
 arr.foreach(println)
 ```
+
 	2. ArrayBuffer (variable length)
 ```
 import scala.collection.mutable.ArrayBuffer 
@@ -152,6 +153,7 @@ arr += 100
 arr += (300, 400, 500)  # add elements
 arr ++= Array(600, 700, 800)  # append collection
 ```
+
 	3. Map
 ```
 import scala.collection.mutable.Map
@@ -160,6 +162,7 @@ map.get(1)
 map.getOrElse(1, "Key Missing")
 map += (1 -> "Jenny")
 ```
+
 	4. Tuple
 ```
 val t = (100, "John")
