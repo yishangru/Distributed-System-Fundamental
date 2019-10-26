@@ -27,6 +27,15 @@ Scala is an object-oriented programming language. It gets source code and genera
 for ( a <- 1 to 10) {
 	println("test");
 }
+
+for (i <- 1 to 5; j <- 1 to 4) println(s"($i, $j)")
+# access variable use $ and s for string
+
+for (i <- 1 to 5; j <= 1 to 4 if i == j) println(s"($i, $j)")
+# add condition when creating loop
+
+val activeCustomer = for (customer <- custList if customer.isActive()) yield(customer)
+# use yield keyword to generate vector (list)
 ```
 
 
@@ -43,7 +52,7 @@ def functionName ([list of parameters]) : [return type] = {
    return [expr]
 }
 
-def addInt( a:Int, b:Int ) : Int = {
+def addInt(a:Int, b:Int = 10) : Int = {
 	var sum:Int = 0
     sum = a + b
    	return sum
@@ -62,7 +71,7 @@ def addInt( a:Int, b:Int ) : Int = {
 - Basic Function
 	1. zip: List(1, 2, 3).zip(List("a", "b", "c")) -> List((1, a), (2, b), (3, c))
 	2. partition: List(1, 2, 3, 4).partition(_ % 2 == 0) -> (List(1, 3), List(2, 4))
-
+	3. reduce: List(1, 2, 3, 4).reduce(_ + _) -> 10
 
 - Scala with Spark
 	1. RDD is a collection of elements, that can be divided across multiple nodes in a cluster for parallel processing:
@@ -108,4 +117,51 @@ df.select("Age").show(10)
 df.filter(df("Purchase") >= 10000).select("Purchase").show(10)
 
 df.groupBy("Age").count().show()
+```
+
+- Write Expression in variable
+```
+val x = {val a = 100; val b = 300; a + b}
+
+val x = {
+	val a = 100
+	val b = 200
+	a + b
+}
+```
+
+- Lazy Declare in Scala
+Lazy values are useful for delaying costly intialization instructions and does not give error on initialization
+```
+lazy val x = (1 to 10000).toList  # not actually generate
+x.reduce(_ + _)  # variable is generated and calculated
+```
+
+- Collections in Scala
+	1. Array (fix size)
+```
+val arr = new Array[Int](10)  # 0 as initialization
+arr(1) = 100
+arr.foreach(println)
+```
+	2. ArrayBuffer (variable length)
+```
+import scala.collection.mutable.ArrayBuffer 
+var arr = new ArrayBuffer[Int]()
+arr += 100
+arr += (300, 400, 500)  # add elements
+arr ++= Array(600, 700, 800)  # append collection
+```
+	3. Map
+```
+import scala.collection.mutable.Map
+import scala.collection.immutable.Map
+map.get(1)
+map.getOrElse(1, "Key Missing")
+map += (1 -> "Jenny")
+```
+	4. Tuple
+```
+val t = (100, "John")
+t._1  # tuple index start from 1
 ```
